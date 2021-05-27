@@ -64,3 +64,20 @@ mysql> describe addressbook;
 | email       | varchar(100) | NO   |     | NULL    |       |
 +-------------+--------------+------+-----+---------+-------+
 8 rows in set (0.30 sec)
+---------------UC3---------Insert data--------------------------------------
+mysql> INSERT INTO addressBook VALUES
+    -> ('Santosh','Panda','Bhubaneswar','Bhubaneswar','Odisha',752066,9875929865,'Santosh123@gmail.com'),
+    -> ('Soumya','Mohapatra','Khordha','Khordha','Odisha',751011,7978715564,'Soumya111@gmail.com'),
+    -> ('Rajesh','Kumar','Marathali','Bangalore','Karnataka',695643,7546241562,'Rajesh@gmail.com');
+Query OK, 3 rows affected (0.31 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from addressbook;
++-----------+-----------+-------------+-------------+-----------+---------+-------------+----------------------+
+| firstName | lastName  | address     | city        | state     | zipCode | phoneNumber | email                |
++-----------+-----------+-------------+-------------+-----------+---------+-------------+----------------------+
+| Rajesh    | Kumar     | Marathali   | Bangalore   | Karnataka |  695643 |  7546241562 | Rajesh@gmail.com     |
+| Santosh   | Panda     | Bhubaneswar | Bhubaneswar | Odisha    |  752066 |  9875929865 | Santosh123@gmail.com |
+| Soumya    | Mohapatra | Khordha     | Khordha     | Odisha    |  751011 |  7978715564 | Soumya111@gmail.com  |
++-----------+-----------+-------------+-------------+-----------+---------+-------------+----------------------+
+3 rows in set (0.09 sec)

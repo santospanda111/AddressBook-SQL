@@ -95,3 +95,15 @@ mysql> select * from addressbook;
 | Soumya    | Mohapatra | Khordha     | Khordha     | Odisha    |  751011 |  7978715564 | Soumya111@gmail.com  |
 +-----------+-----------+-------------+-------------+-----------+---------+-------------+----------------------+
 3 rows in set (0.04 sec)
+-------------------UC5--------------------Delete contact by name-----------------------------------------------------
+mysql> delete from addressbook where firstname='Soumya';
+Query OK, 1 row affected (0.16 sec)
+
+mysql> select * from addressbook;
++-----------+----------+-------------+-------------+-----------+---------+-------------+----------------------+
+| firstName | lastName | address     | city        | state     | zipCode | phoneNumber | email                |
++-----------+----------+-------------+-------------+-----------+---------+-------------+----------------------+
+| Rajesh    | Kumar    | Marathali   | Bangalore   | Karnataka |  695643 |  7546241562 | Rajesh@gmail.com     |
+| Santosh   | Panda    | Bhubaneswar | Bhubaneswar | Odisha    |  751015 |  9875929865 | Santosh123@gmail.com |
++-----------+----------+-------------+-------------+-----------+---------+-------------+----------------------+
+2 rows in set (0.08 sec)

@@ -107,3 +107,19 @@ mysql> select * from addressbook;
 | Santosh   | Panda    | Bhubaneswar | Bhubaneswar | Odisha    |  751015 |  9875929865 | Santosh123@gmail.com |
 +-----------+----------+-------------+-------------+-----------+---------+-------------+----------------------+
 2 rows in set (0.08 sec)
+------------------------UC6----------------------Search by city or state-----------------------------------------------
+mysql> select * from addressbook where city='Bhubaneswar';
++-----------+----------+-------------+-------------+--------+---------+-------------+----------------------+
+| firstName | lastName | address     | city        | state  | zipCode | phoneNumber | email                |
++-----------+----------+-------------+-------------+--------+---------+-------------+----------------------+
+| Santosh   | Panda    | Bhubaneswar | Bhubaneswar | Odisha |  751015 |  9875929865 | Santosh123@gmail.com |
++-----------+----------+-------------+-------------+--------+---------+-------------+----------------------+
+1 row in set (0.01 sec)
+
+mysql> select * from addressbook where state='Karnataka';
++-----------+----------+-----------+-----------+-----------+---------+-------------+------------------+
+| firstName | lastName | address   | city      | state     | zipCode | phoneNumber | email            |
++-----------+----------+-----------+-----------+-----------+---------+-------------+------------------+
+| Rajesh    | Kumar    | Marathali | Bangalore | Karnataka |  695643 |  7546241562 | Rajesh@gmail.com |
++-----------+----------+-----------+-----------+-----------+---------+-------------+------------------+
+1 row in set (0.00 sec)

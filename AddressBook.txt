@@ -1,5 +1,8 @@
+
  WELCOME TO ADDRESSBOOK SYSTEM
+
 ---------UC1---Create Database--------
+
 mysql> CREATE DATABASE AddressBook_service;
 Query OK, 1 row affected (2.01 sec)
 
@@ -27,7 +30,9 @@ mysql> show databases;
 | wow                 |
 +---------------------+
 18 rows in set (0.28 sec)
+
 -----------------UC2-----------Create Table--------------------------
+
 mysql> CREATE TABLE addressBook
     -> (
     -> firstName VARCHAR(100) NOT NULL,
@@ -64,7 +69,9 @@ mysql> describe addressbook;
 | email       | varchar(100) | NO   |     | NULL    |       |
 +-------------+--------------+------+-----+---------+-------+
 8 rows in set (0.30 sec)
+
 ---------------UC3---------Insert data--------------------------------------
+
 mysql> INSERT INTO addressBook VALUES
     -> ('Santosh','Panda','Bhubaneswar','Bhubaneswar','Odisha',752066,9875929865,'Santosh123@gmail.com'),
     -> ('Soumya','Mohapatra','Khordha','Khordha','Odisha',751011,7978715564,'Soumya111@gmail.com'),
@@ -95,7 +102,9 @@ mysql> select * from addressbook;
 | Soumya    | Mohapatra | Khordha     | Khordha     | Odisha    |  751011 |  7978715564 | Soumya111@gmail.com  |
 +-----------+-----------+-------------+-------------+-----------+---------+-------------+----------------------+
 3 rows in set (0.04 sec)
+
 -------------------UC5--------------------Delete contact by name-----------------------------------------------------
+
 mysql> delete from addressbook where firstname='Soumya';
 Query OK, 1 row affected (0.16 sec)
 
@@ -123,7 +132,9 @@ mysql> select * from addressbook where state='Karnataka';
 | Rajesh    | Kumar    | Marathali | Bangalore | Karnataka |  695643 |  7546241562 | Rajesh@gmail.com |
 +-----------+----------+-----------+-----------+-----------+---------+-------------+------------------+
 1 row in set (0.00 sec)
+
 ---------------------------------UC7-------------count contacts by city or state---------------------------------------
+
 mysql> SELECT city, COUNT(city) FROM addressBook GROUP BY city;
 +-------------+-------------+
 | city        | COUNT(city) |
@@ -141,8 +152,11 @@ mysql> SELECT state, COUNT(state) FROM addressBook GROUP BY state;
 | Odisha    |            1 |
 +-----------+--------------+
 2 rows in set (0.02 sec)
+
 -------------------------------------UC8 Sort Data using order by-----------------------------------------
+
 #1st i have inserted two more values.
+
 mysql> INSERT INTO addressBook VALUES
     -> ('Soumya','Mohapatra','Khordha','Khordha','Odisha',751011,7978715564,'Soumya111@gmail.com'),
     -> ('Radhe','Malhotra','Mumbai','Mumbai','Maharastra',751043,7978715587,'radhe111@gmail.com');
@@ -168,7 +182,10 @@ mysql> select firstname from addressbook order by city;
 | Radhe     |
 +-----------+
 4 rows in set (0.00 sec)
+
 -----------------------------UC9 Add addressbookname and type-----------------------------------------------------------
+
+
 mysql> ALTER TABLE addressBook ADD addressBookName VARCHAR(100) AFTER email;
 Query OK, 0 rows affected (1.07 sec)
 Records: 0  Duplicates: 0  Warnings: 0
@@ -204,3 +221,13 @@ mysql> select * from addressbook;
 +-----------+-----------+-------------+-------------+------------+---------+-------------+----------------------+-----------------+-----------------+
 4 rows in set (0.00 sec)
 
+-------------------------------UC10---------Count by type------------------------------------------------------------------------------------------------
+
+mysql> SELECT addressBookType, count(*) FROM addressBook GROUP BY addressBookType;
++-----------------+----------+
+| addressBookType | count(*) |
++-----------------+----------+
+| Friend          |        2 |
+| Family          |        2 |
++-----------------+----------+
+2 rows in set (0.15 sec)

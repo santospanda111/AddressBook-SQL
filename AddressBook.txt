@@ -231,3 +231,26 @@ mysql> SELECT addressBookType, count(*) FROM addressBook GROUP BY addressBookTyp
 | Family          |        2 |
 +-----------------+----------+
 2 rows in set (0.15 sec)
+
+----------------------------------UC11--------add person for family and friend------------------------------------------------------------------------
+
+mysql> INSERT INTO addressBook VALUES
+    -> ('Ross','Taylor','QWYT','NYC','Yui',12543,9874327392,'ross123@gmail.com','AddressBook_5','FRIENDS');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> INSERT INTO addressBook VALUES
+    -> ("aditya", "Bhosale", "shradha nagar", "mumbai", "maharashtra", 781568, 1235547892, "aditya@gmail.com", "addressBook_6", "Family");
+Query OK, 1 row affected (0.12 sec)
+
+mysql> select * from addressbook;
++-----------+-----------+---------------+-------------+-------------+---------+-------------+----------------------+-----------------+-----------------+
+| firstName | lastName  | address       | city        | state       | zipCode | phoneNumber | email                | addressBookName | addressBookType |
++-----------+-----------+---------------+-------------+-------------+---------+-------------+----------------------+-----------------+-----------------+
+| aditya    | Bhosale   | shradha nagar | mumbai      | maharashtra |  781568 |  1235547892 | aditya@gmail.com     | addressBook_6   | Family          |
+| Radhe     | Malhotra  | Mumbai        | Mumbai      | Maharastra  |  751043 |  7978715587 | radhe111@gmail.com   | AddressBook_4   | Friend          |
+| Rajesh    | Kumar     | Marathali     | Bangalore   | Karnataka   |  695643 |  7546241562 | Rajesh@gmail.com     | AddressBook_1   | Friend          |
+| Ross      | Taylor    | QWYT          | NYC         | Yui         |   12543 |  9874327392 | ross123@gmail.com    | AddressBook_5   | FRIENDS         |
+| Santosh   | Panda     | Bhubaneswar   | Bhubaneswar | Odisha      |  751015 |  9875929865 | Santosh123@gmail.com | AddressBook_2   | Family          |
+| Soumya    | Mohapatra | Khordha       | Khordha     | Odisha      |  751011 |  7978715564 | Soumya111@gmail.com  | AddressBook_3   | Family          |
++-----------+-----------+---------------+-------------+-------------+---------+-------------+----------------------+-----------------+-----------------+
+6 rows in set (0.00 sec)

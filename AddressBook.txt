@@ -168,3 +168,39 @@ mysql> select firstname from addressbook order by city;
 | Radhe     |
 +-----------+
 4 rows in set (0.00 sec)
+-----------------------------UC9 Add addressbookname and type-----------------------------------------------------------
+mysql> ALTER TABLE addressBook ADD addressBookName VARCHAR(100) AFTER email;
+Query OK, 0 rows affected (1.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE addressBook ADD addressBookType VARCHAR(100) AFTER addressBookName;
+Query OK, 0 rows affected (0.24 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE addressBook SET addressBookName = 'AddressBook_1',addressbooktype='Friend' WHERE firstName = 'Rajesh';
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE addressBook SET addressBookName = 'AddressBook_2',addressbooktype='Family' WHERE firstName = 'Santosh';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE addressBook SET addressBookName = 'AddressBook_3',addressbooktype='Family' WHERE firstName = 'Soumya';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE addressBook SET addressBookName = 'AddressBook_4',addressbooktype='Friend' WHERE firstName = 'Radhe';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from addressbook;
++-----------+-----------+-------------+-------------+------------+---------+-------------+----------------------+-----------------+-----------------+
+| firstName | lastName  | address     | city        | state      | zipCode | phoneNumber | email                | addressBookName | addressBookType |
++-----------+-----------+-------------+-------------+------------+---------+-------------+----------------------+-----------------+-----------------+
+| Radhe     | Malhotra  | Mumbai      | Mumbai      | Maharastra |  751043 |  7978715587 | radhe111@gmail.com   | AddressBook_4   | Friend          |
+| Rajesh    | Kumar     | Marathali   | Bangalore   | Karnataka  |  695643 |  7546241562 | Rajesh@gmail.com     | AddressBook_1   | Friend          |
+| Santosh   | Panda     | Bhubaneswar | Bhubaneswar | Odisha     |  751015 |  9875929865 | Santosh123@gmail.com | AddressBook_2   | Family          |
+| Soumya    | Mohapatra | Khordha     | Khordha     | Odisha     |  751011 |  7978715564 | Soumya111@gmail.com  | AddressBook_3   | Family          |
++-----------+-----------+-------------+-------------+------------+---------+-------------+----------------------+-----------------+-----------------+
+4 rows in set (0.00 sec)
+
